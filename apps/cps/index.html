@@ -1,0 +1,182 @@
+﻿<html lang="cn">
+<head>
+<meta charset="utf-8">
+<title>CPS点击速度在线测试_蜡烛不点油的Github</title>
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="http://5vmc.com/zt-css/side-bar.css" />
+<meta name="keywords" content="cps测试,点击速度测试,鼠标点击速度,cps工具">
+<meta name="description" content="🈲在线测试鼠标点击速度,提供cps点击测试功能,平均测速稳定准确,工具由我的世界无为生存服提供,连点器速度限制标准测了才知道">
+<script src="http://5vmc.com/zt-js/jquery(mixNIE).1.11.js"></script>
+<link rel="stylesheet" href="http://mc.netease.com/zt/activity/mcid5/css/reset.css">
+<style>
+body {
+background-image: url("http://mc.netease.com/zt/hcb/img/background.jpg");
+}
+.cps-container{
+    background-color: #f4f4f4;
+    font-family: Microsoft Yahei;
+    font-weight: 300;
+    font-size: 24px;
+    overflow: auto;
+    width: 85%;
+    height: 83%;
+    margin: auto;
+    margin-top: 10px;
+}
+.public-header{
+    background: #333333;
+    height: 50px;
+}
+
+.public-container{
+    width: 500px;
+    margin: auto;
+}
+
+.header-nav{
+    float: left;list-style: none;
+}
+.cps-test{
+    padding-top: 100px;
+    position: relative;
+    width: 65%;
+    margin: auto;
+}
+
+#reset,#clicker{
+    margin: auto;
+    margin-top: 30px;
+}
+button{
+    font-family: Microsoft Yahei;
+    font-size: 20px;
+    font-weight: bold;
+}
+h3{
+    color: #bd1a16;
+}
+li{
+    color: #262626;
+    font-size: 20px;
+    line-height:35px;
+}
+.rules{
+    margin-top: 35px;
+}
+
+.footer{
+    background-color: #fff;
+    width: 85%;
+    height: 75px;
+    margin: auto;
+}
+
+</style>
+</head>
+<body>
+
+<div class="public-header">
+<div class="public-container">
+<a href="https://space.bilibili.com/40443369/" target="_blank"><div style="text-align: center;"><img src="https://webinput.nie.netease.com/img/mc/logo.png" alt="" height="50px" ; title="下面才是测试,别点我"></img></div></a>
+</div>
+</div>
+<div class="cps-container">
+<div class="cps-test" style="text-align: center">
+<h3>得分: <span id="clicks">在测试完成后展示</span></h3>
+<button id="clicker" type="button" style="width: 100%; height: 200px; display: none;">点我</button>
+<button id="reset" type="button" style="">
+重新测试
+</button>
+<h3 id="countdown"></h3>
+<div class="rules">
+<ul>
+<li>测试模式时，当你第一次点击，计时开始</li>
+<li>为了准确测试，将取你10秒内连续点击的平均值</li>
+<li>测试结束后展示的结果就是你的最终成绩</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="footer" style="text-align: center;"><a href="https://space.bilibili.com/40443369/" target="_blank"><img src="https://i0.hdslb.com/bfs/face/9aa3ebc263b6dbbefdec4b2c93019461e0895af0.jpg@150w_150h.jpg" alt="蜡烛不点油la_you" width="121" height="50" title="工具由无为生存服提供"></a></div>
+<script type="text/javascript">
+    $(function () {
+        var start;
+        var countdown;
+        var clicks = 0;
+        var active = false;
+        $( "#clicker" ).on("mousedown", function(e) {
+            if(e.which == 1){
+                if(!active){
+                    start = $.now();
+                    active = true;
+                    countdown = setInterval(function(){ timer() }, 57);
+                    clicks = 0;
+                }
+                $(this).blur();
+                clicks++;
+                $('#clicks').html(clicks);
+            }
+        });
+
+        $( "#reset" ).click(function() {
+            if(!active){
+                $('#reset').hide();
+                $('#clicker').show();
+                $('.progress').show();
+                clicks = 0;
+                $('#clicks').html(clicks);
+                clearInterval(countdown);
+            }
+        });
+
+        function timer() {
+            if(($.now() - start) > 10000){
+                $('#clicker').hide();
+                $('.countdown').hide();
+                $('#countdown').html('');
+                $('#reset').show();
+                $('#clicks').html((clicks / 10) + ' CPS');
+                active = false;
+                clearInterval(countdown);
+                document.getElementById("clicker").innerHTML = '点我';
+                return;
+            }
+            var t = (start - $.now()) / 1000
+            $('#countdown').html(Math.abs(t));
+        }
+    });
+</script>
+<script type="text/javascript">
+window.setTimeout(function() {
+    document.body.className = document.body.className.replace('loading', '');
+    }, 10);
+</script>
+
+
+
+<script>
+(function(){
+var bp = document.createElement('script');
+var curProtocol = window.location.protocol.split(':')[0];
+if (curProtocol === 'https'){
+bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+}
+else{
+bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+}
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<script type="text/javascript"> (function() {
+    document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));
+    var bdcs = document.createElement('script');
+    bdcs.type = 'text/javascript';
+    bdcs.async = true;
+    bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=17645504951050608326' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date() / 3600000);
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(bdcs, s);
+})(); </script>
+</body>
+</html>
