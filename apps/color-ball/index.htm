@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -15,8 +15,10 @@
 }
 </style>
 
+<p id="Time" class="style1">这里将会显示时间</p>
+
 <script type="text/javascript"><!--在屏幕上显示时间，假装防沉迷qwq-->
-functionn (loadTime(){ //事件：定义loadTime
+functionn loadTime(){ //事件：定义loadTime
 	var date=new Date(); //获取当前时间
 	var year=date.getFullYear(); //获取当前年份   
 	var mon=date.getMonth()+1; //获取当前月份   
@@ -24,13 +26,13 @@ functionn (loadTime(){ //事件：定义loadTime
 	var h=date.getHours(); //获取小时   
 	var m=date.getMinutes(); //获取分钟   
 	var s=date.getSeconds(); //获取秒
-	document.getElementById('Date').innerHTML='当前时间:'+year+'年'+mon+'月'+da+'日'+'星期'+day+' '+h+':'+m+':'+s;  },1000)
+	document.getElementById('Time').innerHTML='当前时间:'+year+'年'+mon+'月'+da+'日'+'星期'+day+' '+h+':'+m+':'+s;  },1000);
 	
 	//window.onload=loadTime(){ //事件：每次打开网页的时候执行 
 }</script><!--时间显示模块代码结束-->
 
 </head>
-<body onLoad="loadTime();">
+<body onload="loadTime()">
 <div class="style1">
 <br>
 <canvas id="canvas" height="400" width="600" style="background: #333;"></canvas>
@@ -138,7 +140,7 @@ functionn (loadTime(){ //事件：定义loadTime
                 ctx.font = "24px 微软雅黑";
                 ctx.fillStyle = "#fefefe";
                 ctx.fillText("目前分数:" + (this.basic * 5 + this.star1 * 8 + this.star2 * 10 + this.boom * 20), 0, 30);
-                ctx.fillText("蜡油的破站小游戏",0,100);
+                ctx.fillText("某人的破站小游戏",0,100);
                 //ctx.fillText("当前时间:\n" + mon + '月' + day + '日' + ' ' + h + ':' + m + ':' + s , 0,170)
                 	ctx.stroke();
                 ctx.restore();
@@ -578,6 +580,10 @@ functionn (loadTime(){ //事件：定义loadTime
     </script><!--Javascript结束-->
 </div>
 <div class="style1">
+<button type="button" onclick="loadTime()">刷新现在时间</button>
+<!--a href="javascript:loadTime()"></a-->
+</div>
+<div class="style1">
 <h1>
 <a href="index.htm" class="style2">重新开始游戏</a> 
 </h1>
@@ -587,4 +593,5 @@ functionn (loadTime(){ //事件：定义loadTime
 <script src="/follow.js" type="text/javascript"></script>
 </div>
 </body>
+<!--最后,祝你身体健康,再见-->
 </html>
