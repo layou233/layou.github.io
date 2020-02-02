@@ -7,9 +7,11 @@
 </head>
 
 <body>
+  <p id="view">NONE<p>
+  
   <script type="text/javascript">
     function getParameter(name){
-      var reg = new RegExp("(^|&)" name "=([^&]*)(&|$)","i")
+      var reg = new RegExp("(^|&)" name "=([^&]*)(&|$)","i");
       var r = window.location.search.substr(1).match(reg);
       if (r!=null) return unescape(r[2]); return null;
     }
@@ -17,11 +19,23 @@
     function myBrowser() {
       var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
       if(userAgent.indexOf("Alipay") > -1) return "Alipay";
-      else if(userAgent.indexOf("MicroMessenger") > -1) return "MicroMessenger";
-      else if(userAgent.indexOf("QQ") > -1) return "Alipay";
+      else if(userAgent.indexOf("MicroMessenger") > -1) return "WeChat";
+      else if(userAgent.indexOf("QQ") > -1 || userAgent.indexOf("MQQBrowser") > -1) return "QQ";
       else return null;
-      
+    }
+    
+    var browser=myBrowser();
+    document.getElementById("view").innerHTML=browser;
+    
+    var urlWeChat=getParameter("wc");
+    var urlAlipay=getParameter("ali");
+    var urlQQ=getParameter("q");
+    
+    if(browser="WeChat") window.location.href=urlWeChat;
+    if(browser="Alipay") window.location.href=urlAlipay;
+    if(browser="QQ") window.location.href=urlQQ;
   </script>
+  
 </body>
 
 </html>
