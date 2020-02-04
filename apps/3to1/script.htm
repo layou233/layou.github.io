@@ -16,7 +16,7 @@
       if(userAgent.indexOf("Alipay") > -1) return "Alipay";
       else if(userAgent.indexOf("MicroMessenger") > -1) return "WeChat";
       else if(userAgent.indexOf("QQ") > -1 || userAgent.indexOf("MQQBrowser") > -1) return "QQ";
-      else return null;
+      else return -1;
     }
     
     var browser=myBrowser();
