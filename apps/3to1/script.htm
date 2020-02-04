@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -9,13 +9,8 @@
 <body>
   <p id="view">NONE<p>
   
+  <script src="//layou233.github.io/js/getTail.js"></script>
   <script type="text/javascript">
-    function getParameter(name){
-      var reg = new RegExp("(^|&)" name "=([^&]*)(&|$)","i");
-      var r = window.location.search.substr(1).match(reg);
-      if (r!=null) return unescape(r[2]); return null;
-    }
-    
     function myBrowser() {
       var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
       if(userAgent.indexOf("Alipay") > -1) return "Alipay";
@@ -27,9 +22,9 @@
     var browser=myBrowser();
     document.getElementById("view").innerHTML=browser;
     
-    var urlWeChat=getParameter("wc");
-    var urlAlipay=getParameter("ali");
-    var urlQQ=getParameter("q");
+    var urlWeChat=getTail("wc");
+    var urlAlipay=getTail("ali");
+    var urlQQ=getTail("q");
     
     if(browser="WeChat") window.location.href=urlWeChat;
     if(browser="Alipay") window.location.href=urlAlipay;
