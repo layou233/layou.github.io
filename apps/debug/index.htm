@@ -2,12 +2,70 @@
 <html>
 
 <head>
-  <title>la_you's DEBUG</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <script src="https://layou233.github.io/js/getTail.js"></script>
+ <title>la_you's DEBUG</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <script src="https://layou233.github.io/js/getTail.js"></script>
+ <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script><!--返回returnCitySN列表-->
 </head>
 
 <body>
-  <
+ <h2>Based on Javascript</h2>
+ <table border=“1”>
+  <tr>
+   <td>Javascript</td>
+   <td id=“js”>CANNOT WORK</td>
+  </tr>
+
+  <tr>
+   <td>Java</td>
+   <td id=“java”>CANNOT WORK</td>
+  </tr>
+
+  <tr>
+   <td>UserAgent</td>
+   <td id=“ua”></td>
+  </tr>
+
+  <tr>
+   <td>IP</td>
+   <td id=“ip”></td>
+  </tr>
+
+  <tr>
+   <td>SystemTime</td>
+   <td id=“time”></td>
+  </tr>
+
+  <tr>
+   <td>CookieEnabled?</td>
+   <td id=“cookie”></td>
+  </tr>
+
+ </table>
+
+ <script type=“text/javascript”>
+  //Javascript
+  document.getElementById("js").innerHTML = "working";
+
+  //Java
+  if(navigator.javaEnabled()) document.getElementById("java").innerHTML = "working";
+
+  //UserAgent
+  document.getElementById("ua").innerHTML = navigator.userAgent;
+
+  //IP
+  document.getElementById("js").innerHTML = returnCitySN[“cip”]+”, “+returnCitySN[“cname”];
+
+  //SystemTime
+  document.getElementById("time").innerHTML = Date();
+
+  //Cookie Enabled?
+  document.getElementById("js").innerHTML = navigator.cookieEnabled;
+
+  //Console
+  console.warn(“Console is working and it can hear command from Javascript.”);
+ </script>
+
 </body>
+
 </html>
