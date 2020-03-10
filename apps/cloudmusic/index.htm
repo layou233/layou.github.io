@@ -3,12 +3,6 @@
 
 <head>
 	<title>NeteaseCloudMusic Downloader</title>
-</head>
-
-<body>
-	<input type="text" name="url" />
-	<button onclick="download()">Download!</p>
-
 	<script type="text/javascript">
 		function download(){
 			var url = document.getElementById("url").value;
@@ -16,7 +10,11 @@
 			window.location.href = "http://music.163.com/song/media/outer/url?id="+id+".mp3"
 		}
 	</script>
+</head>
 
+<body>
+	<input type="text" id="url" />
+	<button onclick="download()">Download!</button>
 </body>
 
 </html>
