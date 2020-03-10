@@ -7,14 +7,14 @@
 
 <body>
 	<input type="text" name="url" />
-	<button >Download!</p>	
+	<button onclick="download()">Download!</p>
 
 	<script type="text/javascript">
-		function
-		var url = document.getElementById("url").value;
-		var id = url.substring(url.lastIndexOf("id=")+3,url.lastIndexOf("&userid"));
-		window.location.href = "http://music.163.com/song/media/outer/url?id="+id+".mp3"
-		
+		function download(){
+			var url = document.getElementById("url").value;
+			var id = url.substring(url.lastIndexOf("id=")+3,url.lastIndexOf("&userid"));
+			window.location.href = "http://music.163.com/song/media/outer/url?id="+id+".mp3"
+		}
 	</script>
 
 </body>
