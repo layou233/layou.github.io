@@ -14,20 +14,28 @@
 	</style>
 
 	<script type="text/javascript">
-		var id;
-		function change(){
-			var url = document.getElementById("url").value;
+		var id,url;
+		function getId(){
 			if(url.indexOf("song?") > -1){
 				if(url.indexOf("&") > -1) id = url.substring(url.indexOf("id=")+3,url.indexOf("&")); //示例https://music.163.com/#/song?id=447281026
 				else id = url.substring(url.indexOf("id=")+3,url.length); //示例https://music.163.com/#/song?id=447281026&userid=xxxxx
 			}
 			else id = url.substring(url.indexOf("song/")+5,url.indexOf("/?")); //示例http://music.163.com/song/447281026/?userid=xxxxx
-
+		}
+		function change(){
+			url = document.getElementById("url").value;
+			getId()
 			document.getElementById("button").innerHTML = "Download "+id+"!";
 		}
 
 		function download(){
 			change();
+			window.location.href = "http://music.163.com/song/media/outer/url?id="+id+".mp3";
+		}
+		
+		if(window.location.href.indexOf("url=") > -1){
+			url = window.location.href.substring(window.location.href.indexOf("url=")+4,window.location.href.length);
+			getId();
 			window.location.href = "http://music.163.com/song/media/outer/url?id="+id+".mp3";
 		}
 	</script>
