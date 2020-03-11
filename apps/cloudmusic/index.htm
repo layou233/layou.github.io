@@ -2,23 +2,41 @@
 <html>
 
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>NeteaseCloudMusic Downloader</title>
+
+	<style type="text/css">
+		button,input {
+			height: 30px;
+			width: 100%;
+			display: block;
+		}
+	</style>
+
 	<script type="text/javascript">
-		function download(){
+		var id;
+		function change(){
 			var url = document.getElementById("url").value;
 			if(url.indexOf("song?") > -1){
-				if(url.indexOf("&") > -1) var id = url.substring(url.indexOf("id=")+3,url.indexOf("&"));
-				else var id = url.substring(url.indexOf("id=")+3,url.length)
+				if(url.indexOf("&") > -1) id = url.substring(url.indexOf("id=")+3,url.indexOf("&")); //示例https://music.163.com/#/song?id=447281026
+				else id = url.substring(url.indexOf("id=")+3,url.length); //示例https://music.163.com/#/song?id=447281026&userid=xxxxx
 			}
-			else var id = url.substring(url.indexOf("song/")+5,url.indexOf("/?"))
-			window.location.href = "http://music.163.com/song/media/outer/url?id="+id+".mp3"
+			else id = url.substring(url.indexOf("song/")+5,url.indexOf("/?")); //示例http://music.163.com/song/447281026/?userid=xxxxx
+
+			document.getElementById("button").innerHTML = "Download "+id+"!";
+		}
+
+		function download(){
+			change();
+			window.location.href = "http://music.163.com/song/media/outer/url?id="+id+".mp3";
 		}
 	</script>
 </head>
 
 <body>
-	<input type="text" id="url" />
-	<button onclick="download()">Download!</button>
+	<input type="text" id="url" onchange="change()" placeholder="Enter the the sharing URL of the song you want to download here" />
+	<button id="button" onclick="download()">Download !</button>
+	<p>This script is NOT applicable to paid tracks!</p>
 </body>
 
 </html>
