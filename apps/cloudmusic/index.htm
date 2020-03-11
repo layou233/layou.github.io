@@ -36,7 +36,7 @@
 
 		if(window.location.href.indexOf("url=") > -1){
 			var href = window.location.href;
-			if(href.indexOf("&",href.indexOf("url=")+4) > -1) href.substring(href.indexOf("url=")+4,href.indexOf("&",href.indexOf("url=")+4));
+			if(href.indexOf("&",href.indexOf("url=")+4) > -1) url = href.substring(href.indexOf("url=")+4,href.indexOf("&",href.indexOf("url=")+4));
 			else url = href.substring(href.indexOf("url=")+4,href.length);
 			getId();
 			window.location.href = "http://music.163.com/song/media/outer/url?id="+id+".mp3";
