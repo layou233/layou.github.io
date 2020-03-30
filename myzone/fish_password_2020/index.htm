@@ -16,31 +16,45 @@
 	<p>本项目由内鬼FantZ提供维护与支持</p>
 	<hr />
 
+	<!--Password-->
 	<h2>2020-3-27</h2>
-	<p id="327">番茄</p>
-	
+	<p id="327">["番茄"]</p>
+
 	<h2>2020-3-30</h2>
-	<p id="330">{"白落梅","木瓜"}</p>
-	
+	<p id="330">["白落梅","木瓜"]</p>
+
 	<hr />
+
+	<!--Interface Helps-->
 	<h1>本项目提供JSON接口</h1>
 	<p>如果在本网址后面加上</p>
 	<per>?json=</per>
 	<p>则会自动输出当日暗号的JSON</p>
+	<p>输出的内容类型是由字符串组成的列表</p>
 	<p>json=当日的月份和年份连接起来的三位数字，如3月27日，json的值应为327</p>
 	<h3>e.g.</h3>
 	<p>window.location.href="https://layou233.github.io/myzone/fish_password_2020/?json=327"</p>
 	<h4>Output=</h4>
 	<per><code>
 		{
-			fishPassword = "番茄";
+			dayOfFishPw = "327",
+			fishPassword = ["番茄"];
 		}
 	</code></per>
 
 	<!--Interface Scripts-->
-	<script>
-		var json=getTail(json);
-		if(json!=null) document.write(document.getElementById(json).innerHTML);
+	<script type="text/javascript" defer="defer">
+		window.onload=function(){
+			var json=getTail("json");
+			if(json!=null)
+				document.write(
+					'{dayOfFishPw="'
+					+json
+					+'",fishPassword='
+					+document.getElementById(json).innerHTML
+					+"}"
+				);
+		};
 	</script>
 </body>
 </html>
