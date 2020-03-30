@@ -4,6 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Fish's Password Decoder</title>
 	<script src="https://layou233.github.io/js/getTail.js"></script>
+	<!--style type="text/css">input{width:300px;height:30px}button{widght:50px;height:30px}</style-->
 </head>
 
 <body>
@@ -17,6 +18,9 @@
 	<hr />
 
 	<!--Password-->
+	<h1>接头暗号</h1>
+	<input type="text" id="input" style="width:300px;height:30px" placeholder="直达入口，请输入日期码(如327、330)" />
+	<button style="width:80px;height:30px;" onclick="buttonClick()">跳转</button>
 	<h2>2020-3-27</h2>
 	<p id="327">["番茄"]</p>
 
@@ -31,30 +35,34 @@
 	<per>?json=</per>
 	<p>则会自动输出当日暗号的JSON</p>
 	<p>输出的内容类型是由字符串组成的列表</p>
-	<p>json=当日的月份和年份连接起来的三位数字，如3月27日，json的值应为327</p>
+	<p>json值即上方直达入口使用的日期码，即当日的月份和日期连接起来的三位数字，如3月27日，json的值应为327</p>
 	<h3>e.g.</h3>
 	<p>window.location.href="https://layou233.github.io/myzone/fish_password_2020/?json=327"</p>
 	<h4>Output=</h4>
 	<per><code>
 		{
 			dayOfFishPw = "327",
-			fishPassword = ["番茄"];
+			fishPassword = ["番茄"]
 		}
 	</code></per>
 
 	<!--Interface Scripts-->
 	<script type="text/javascript" defer="defer">
-		window.onload=function(){
-			var json=getTail("json");
-			if(json!=null)
-				document.write(
-					'{dayOfFishPw="'
-					+json
-					+'",fishPassword='
-					+document.getElementById(json).innerHTML
-					+"}"
-				);
+		function writeJSON(json){
+			if(json!=null) document.write(
+				'{dayOfFishPw="'
+				+json
+				+'",fishPassword='
+				+document.getElementById(json).innerHTML
+				+"}"
+			);
 		};
+
+		function buttonClick(){
+			writeJSON(document.getElementById("input").value);
+		}
+
+		window.onload=function(){writeJSON(getTail("json"))};
 	</script>
 </body>
 </html>
