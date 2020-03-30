@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Fish's Password Decoder</title>
+	<script src="https://layou233.github.io/js/getTail.js"></script>
+</head>
+
+<body>
+	<h1>Fish HuafanG Code</h1>
+	<h1>Decoder</h1>
+	<img src="The_Fish_Huafang_Code.jpg">
+	<hr />
+	<p>本项目公益提供Fish每节课的接头暗号</p>
+	<p>且尽量提供永久更新</p>
+	<p>本项目由内鬼FantZ提供维护与支持</p>
+	<hr />
+
+	<h2>2020-3-27</h2>
+	<p id="327">番茄</p>
+	
+	<h2>2020-3-30</h2>
+	<p id="330">{"白落梅","木瓜"}</p>
+	
+	<hr />
+	<h1>本项目提供JSON接口</h1>
+	<p>如果在本网址后面加上</p>
+	<per>?json=</per>
+	<p>则会自动输出当日暗号的JSON</p>
+	<p>json=当日的月份和年份连接起来的三位数字，如3月27日，json的值应为327</p>
+	<h3>e.g.</h3>
+	<p>window.location.href="https://layou233.github.io/myzone/fish_password_2020/?json=327"</p>
+	<h4>Output=</h4>
+	<per><code>
+		{
+			fishPassword = "番茄";
+		}
+	</code></per>
+
+	<!--Interface Scripts-->
+	<script>
+		var json=getTail(json);
+		if(json!=null) document.write(document.getElementById(json).innerHTML);
+	</script>
+</body>
+</html>
