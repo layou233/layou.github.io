@@ -6,7 +6,7 @@
   <body>
     <p>If you stuck in this page for a long time, please retry!</p>
     <script>
-      (function(){a=window.location.href;window.location.href=atob(a.substr(a.indexOf('?')+1).replaceAll('#','J').replaceAll('*','8')+'=');})()
+      window.location.href=atob(window.location.href.substr(window.location.href.indexOf('?')+1))
     </script>
   </body>
 </html>
